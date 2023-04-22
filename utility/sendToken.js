@@ -5,6 +5,7 @@ export const sendToken = (user, res, statusCode, message) => {
     expires: new Date(
       Date.now() + 1000 * 60 * 60 * 24 * process.env.JWT_COOKIE_EXPIRE
     ),
+    secure: true,
   };
   res
     .cookie("token", token, options)

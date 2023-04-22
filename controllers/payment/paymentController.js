@@ -11,10 +11,7 @@ class Payment {
     if (!amount) return next(new ErrorHandler(400, "Amount is required."));
     if (user.role === "admin") {
       return next(
-        new ErrorHandler(
-          400,
-          "There is not need to buy subscription for Admin."
-        )
+        new ErrorHandler(400, "There is not need to buy product for an admin")
       );
     }
     const options = {
