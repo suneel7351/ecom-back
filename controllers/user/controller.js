@@ -69,9 +69,10 @@ class Controller {
   });
   static logout = AsyncError(async (req, res, next) => {
     res.cookie("token", null, {
-      expires: new Date(Date.now()),
       httpOnly: true,
+      expires: new Date(0),
       secure: true,
+      sameSite: "none",
     });
 
     res.status(200).json({
